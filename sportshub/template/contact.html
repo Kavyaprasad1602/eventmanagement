@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} sportshub {% endblock %}
+{% block content %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+        min-height: 100vh; /* Ensure the body takes up the full height of the viewport */
+        display: flex;
+        flex-direction: column; /* Make the body a flex container with column layout */
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 50px auto; /* Adjusted to center the container horizontally */
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        flex: 1; /* Make the container flex to fill the available space */
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    p {
+        text-align: center;
+        margin-bottom: 10px; /* Increased margin bottom */
+    }
+
+    .contact-info {
+        margin-bottom: 20px;
+    }
+
+    .contact-info p {
+        margin: 10px 0; /* Increased margin top and bottom */
+    }
+
+    .address {
+        margin-top: 20px;
+    }
+
+    footer {
+        background-color: #333; /* Footer background color */
+        color: #fff; /* Footer text color */
+        text-align: center;
+        padding: 10px 0; /* Padding top and bottom */
+        flex-shrink: 0; /* Prevent the footer from shrinking */
+    }
+</style>
+
+<div class="container">
+    <h1>Get in touch</h1>
+    <div class="contact-info">
+        <p><strong>General inquiries:</strong></p>
+        <p>+91 8921734245</p>
+        <p><strong>Assistance hours:</strong></p>
+        <p>Monday – Friday</p>
+        <p>10 am to 7 pm </p>
+    </div>
+    <div class="address">
+        <p><strong>Address:</strong></p>
+        <p>Mannar, kayamkulam-thiruvalla Rd,</p>
+        <p>Mannar, Kerala </p>
+    </div>
+</div>
+
+<footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2024 SportsHub. All Rights Reserved.</p>
+</footer>
+
+{% endblock %}
+

@@ -1,0 +1,107 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} signup {% endblock %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        footer {
+            background-color: #333; /* Footer background color */
+            color: #fff; /* Footer text color */
+            text-align: center;
+            padding: 10px 0; /* Padding top and bottom */
+            position: fixed; /* Fixed positioning */
+            bottom: 0; /* Align to the bottom */
+            width: 100%; /* Full width */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sign Up</h1>
+        <form id="signupForm" method="post">
+            {% csrf_token %}
+            <input type="text" id="username" name="username" placeholder="Username">
+            <input type="email" id="email" name="email" placeholder="Email">
+            <input type="password" id="password" name="password" placeholder="Password">
+            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password">
+            <button type="button" onclick="signup()">Sign Up</button>
+        </form>
+    </div>
+
+    <script>
+        function signup() {
+            var username = document.getElementById("username").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+
+            // Basic validation
+            if (username.trim() === '' || email.trim() === '' || password.trim() === '' || confirmPassword.trim() === '') {
+                alert("All fields are required");
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match");
+                return;
+            }
+
+            // it can perform further validation if needed
+
+            // Submit the form (or perform AJAX request to submit data to the server)
+            document.getElementById("signupForm").submit();
+        }
+
+        // JavaScript to display alert messages
+        {% for message in messages %}
+            alert("{{ message }}");
+        {% endfor %}
+    </script>
+
+    <footer>
+        &copy; 2024 SportsHub. All Rights Reserved.
+    </footer>
+</body>
+</html>
+{% endblock %}
+
+
